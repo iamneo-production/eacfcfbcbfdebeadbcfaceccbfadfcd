@@ -1,15 +1,18 @@
 <form>
-  From:<select name="fCurrency" [(ngModel)]="opt1" id="fromCurrency">
-    <option value="1.126735">USD</option>
-    <option value="79.677056">INR</option>
-    <option value="0.876893">GBP</option>
-  </select><br>
-  To:<select name="tCurrency" [(ngModel)]="opt2" id="toCurrency">
-    <option value="1.126735">USD</option>
-    <option value="79.677056">INR</option>
-    <option value="0.876893">GBP</option>
+  <label for="fromCurrency">From:</label>
+  <select id="fromCurrency" [(ngModel)]="fromCurrency" name="fromCurrency">
+    <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.id}}</option>
   </select>
-  <input type="number"[(ngModel)]="amt" name="amount" id="amount">
-  <input type="button" value="convert" id="submitButton" (click)="exchange(opt1,opt2,amt)">
-  <input type="text" [(ngModel)]="result" id="result">
+
+  <label for="toCurrency">To:</label>
+  <select id="toCurrency" [(ngModel)]="toCurrency" name="toCurrency">
+    <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.id}}</option>
+  </select>
+
+  <label for="amount">Amount:</label>
+  <input type="number" id="amount" [(ngModel)]="amount" name="amount">
+
+  <button id="submitButton" (click)="convert()">Convert</button>
 </form>
+
+<div id="result">{{result}}</div>

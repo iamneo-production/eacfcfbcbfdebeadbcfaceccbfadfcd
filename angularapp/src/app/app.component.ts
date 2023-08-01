@@ -3,25 +3,30 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularapp';
-  opt1:number;
-  opt2:number;
-  amt:number;
-  result:string;
+  fromCurrency = 'USD';
+  toCurrency = 'GBP';
+  amount = 0;
+  result = '';
 
-  constructor() {
-    this.opt1 = 0;
-    this.opt2 = 0;
-    this.amt = 0;
-    this.result = '';
-  }
+  currencies = [
+    { id: 'USD', value: 1.126735 },
+    { id: 'GBP', value: 0.876893 },
+    { id: 'INR', value: 79.677056 },
+  ];
 
-  exchange(a:number,b:number,amt:number){
-    if(a!=null && b!=null && amt!=null){
-      this.result = (b/a*amt).toFixed(2);
+  convert() {
+    const fromRate = this.currencies.find(
+      (currency) => currency.id === this.fromCurrency
+    )?.value;
+    const toRate = this.currencies.find(
+      (currency) => currency.id === this.toCurrency
+    )?.value;
+    if (fromRate && toRate) {
+      this.result = `${this.amount} ${this.fromCurrency} = ${
+        (this.amount * fromRate) / toRate
+      } ${this.toCurrency}`;
     }
   }
 }

@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularapp';
-  opt1!: number;
-  opt2!: number;
-  amt!: number;
-  res!: number;
-  result!: string;
+  opt1:number;
+  opt2:number;
+  amt:number;
+  res:number;
+  result:string;
   exchange(a:number,b:number,amt:number){
     if(a!=null && b!=null){
       this.result=Math.round(b/a*amt).toFixed(2);

@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  title = 'angularapp';
   fromCurrency = 'USD';
   toCurrency = 'GBP';
   amount = 0;

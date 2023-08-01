@@ -7,15 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularapp';
-  opt1: string;
-  opt2: string;
-  amt: number;
-  res: string;
-  result: string;
+  opt1: string = "1.126735";
+  opt2: string = "1.126735";
+  amt: number = 0;
+  res: string = "";
+  result: string = "";
+
+
 
   exchange(a: string, b: string, amt: number) {
     if (a != null && b != null) {
       this.result = (Number(b) / Number(a) * amt).toFixed(2);
-    }
-  }
+    }
+  }
 }

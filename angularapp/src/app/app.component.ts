@@ -12,9 +12,6 @@ export class AppComponent {
   amt: number = 0;
   res: string = "";
   result: string = "";
-
-
-
   exchange(a: string, b: string, amt: number) {
     if (a != null && b != null) {
       this.result = (Number(b) / Number(a) * amt).toFixed(2);
